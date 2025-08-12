@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Window
+    x:Class="PUBGNetworkMonitor.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PUBGNetworkMonitor"
+    xmlns:views="using:PUBGNetworkMonitor.Views"
+    Title="PUBG Network Monitor">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <NavigationView
+            x:Name="MainNav"
+            Grid.Row="0"
+            IsBackButtonVisible="Collapsed"
+            IsPaneOpen="False"
+            IsPaneToggleButtonVisible="false"
+            IsSettingsVisible="False"
+            PaneDisplayMode="LeftCompact"
+            SelectionChanged="NavigationView_SelectionChanged">
+            <NavigationView.MenuItems>
+                <NavigationViewItem
+                    Content="Dashboard"
+                    IsSelected="True"
+                    Tag="dashboard">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE80F;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Content="Logs" Tag="logs">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE9D9;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Content="About" Tag="about">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE946;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+            </NavigationView.MenuItems>
+            <Frame x:Name="ContentFrame" />
+        </NavigationView>
+        <!--  Global Footer  -->
+        <Border
+            Grid.Row="1"
+            Padding="12,8"
+            Background="{ThemeResource SystemControlBackgroundAltMediumBrush}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <!--  version text  -->
+                <TextBlock
+                    Grid.Column="0"
+                    Margin="40,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    FontSize="14"
+                    Text="v1.0.0-beta.1" />
+
+                <!--  attribution  -->
+                <StackPanel
+                    Grid.Column="1"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal"
+                    Spacing="6">
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        FontSize="14"
+                        Text="Made with" />
+                    <FontIcon
+                        VerticalAlignment="Center"
+                        FontSize="14"
+                        Foreground="CadetBlue"
+                        Glyph="&#xEB52;" />
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        FontSize="14"
+                        Text="by" />
+                    <HyperlinkButton
+                        Margin="0"
+                        Padding="0"
+                        VerticalAlignment="Center"
+                        Content="Anit Behera"
+                        FontSize="14"
+                        Foreground="{ThemeResource SystemControlForegroundAccentBrush}"
+                        NavigateUri="https://www.reddit.com/user/anitbehera_/" />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+    </Grid>
+</Window>
+

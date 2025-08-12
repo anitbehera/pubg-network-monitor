@@ -1,0 +1,71 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net9.0-windows10.0.18362</TargetFramework>
+		<TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+		<RootNamespace>PUBGNetworkMonitor</RootNamespace>
+		<UseWinUI>true</UseWinUI>
+		<Platforms>x86;x64</Platforms>
+		<RuntimeIdentifiers>win-x86;win-x64</RuntimeIdentifiers>
+		<WindowsAppSDKSelfContained>false</WindowsAppSDKSelfContained>
+		<SelfContained>false</SelfContained>
+		<EnableMsixTooling>true</EnableMsixTooling>
+		
+		<!-- Make app unpackaged (not MSIX/AppX) -->
+		<WindowsPackageType>None</WindowsPackageType>
+
+		<!-- Include manifest for admin privileges -->
+		<ApplicationManifest>app.manifest</ApplicationManifest>
+
+		<!-- Application details -->
+		<AssemblyTitle>PUBG Network Monitor</AssemblyTitle>
+		<AssemblyDescription>Monitor and control PUBG connections to Akamai CDN servers</AssemblyDescription>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+		<FileVersion>1.0.0.0</FileVersion>
+		<ApplicationIcon>Assets\Logo.ico</ApplicationIcon>
+		<AssemblyName>PUBGNetworkMonitor</AssemblyName>
+	</PropertyGroup>
+
+
+
+	<ItemGroup>
+		<!-- Windows App SDK package -->
+		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.7.250606001" />
+		<PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.4654" />
+		<!-- Win32 interop for overlay functionality -->
+		<PackageReference Include="Microsoft.Windows.CsWin32" Version="0.3.183">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<!-- Include all Assets files -->
+	<ItemGroup>
+		<Content Include="Assets\**\*" CopyToOutputDirectory="PreserveNewest" />
+	</ItemGroup>
+	<ItemGroup>
+		<Content Update="Assets\firman.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Update="Assets\checked.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<!-- Include all Pages -->
+	<ItemGroup>
+		<None Remove="Views\AboutPage.xaml" />
+		<None Remove="Views\DashboardPage.xaml" />
+	</ItemGroup>
+	<ItemGroup>
+		<Page Update="Views\AboutPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
+	</ItemGroup>
+	<ItemGroup>
+		<Page Update="Views\DashboardPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
+	</ItemGroup>
+
+</Project>

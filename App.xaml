@@ -1,0 +1,51 @@
+<Application
+    x:Class="PUBGNetworkMonitor.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PUBGNetworkMonitor">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--  Value Converters  -->
+            <local:IntToVisibilityConverter x:Key="IntToVisibilityConverter" />
+            <local:BoolToGameServerBrushConverter x:Key="BoolToGameServerBrushConverter" />
+            <local:BoolToGameServerTextConverter x:Key="BoolToGameServerTextConverter" />
+            <local:ColorToBrushConverter x:Key="ColorToBrushConverter" />
+
+            <!--  PUBG-themed colors  -->
+            <SolidColorBrush x:Key="PubgOrangeBrush" Color="#F7931E" />
+            <SolidColorBrush x:Key="PubgBlueBrush" Color="#1E88E5" />
+            <SolidColorBrush x:Key="PubgDarkBrush" Color="#2C2C2C" />
+
+            <!--  Custom styles  -->
+            <Style x:Key="HeaderTextStyle" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="28" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="Margin" Value="0,0,0,16" />
+                <Setter Property="Foreground" Value="{StaticResource PubgOrangeBrush}" />
+            </Style>
+
+            <Style x:Key="StatusTextStyle" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseMediumBrush}" />
+            </Style>
+
+            <Style
+                x:Key="PubgAccentButtonStyle"
+                BasedOn="{StaticResource AccentButtonStyle}"
+                TargetType="Button">
+                <Setter Property="Background" Value="{StaticResource PubgOrangeBrush}" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+            </Style>
+
+            <Style x:Key="GameInfoStyle" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Consolas" />
+                <Setter Property="FontSize" Value="11" />
+                <Setter Property="FontWeight" Value="Medium" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

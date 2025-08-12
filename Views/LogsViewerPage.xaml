@@ -1,0 +1,79 @@
+<Page
+    x:Class="PUBGNetworkMonitor.Views.LogsViewerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:PUBGNetworkMonitor.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--  Header  -->
+        <TextBlock
+            Grid.Row="0"
+            Margin="0,0,0,20"
+            Style="{StaticResource TitleTextBlockStyle}"
+            Text="Logs" />
+
+        <!--  Status Message  -->
+        <Border
+            Grid.Row="1"
+            Margin="0,0,0,12"
+            Padding="12,8"
+            Background="{ThemeResource LayerFillColorDefaultBrush}"
+            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+            BorderThickness="1"
+            CornerRadius="6">
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="12"
+                FontWeight="Normal"
+                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                Text="{x:Bind ViewModel.StatusMessage, Mode=OneWay}"
+                TextWrapping="Wrap" />
+        </Border>
+
+        <!--  Connection Log Display  -->
+        <Border
+            Grid.Row="2"
+            Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+            BorderThickness="1"
+            CornerRadius="8">
+
+            <!--  Log Content  -->
+            <ScrollViewer
+                MaxHeight="300"
+                Padding="12,8"
+                VerticalScrollBarVisibility="Auto"
+                VerticalScrollMode="Auto">
+                <ListView ItemsSource="{x:Bind ViewModel.ConnectionLog, Mode=OneWay}" SelectionMode="None">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <!--  Reduce top/bottom padding and remove minimum height  -->
+                            <Setter Property="Padding" Value="0,1" />
+                            <Setter Property="MinHeight" Value="0" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="x:String">
+                            <TextBlock
+                                FontFamily="Consolas"
+                                FontSize="10"
+                                Text="{x:Bind}"
+                                TextWrapping="NoWrap" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</Page>

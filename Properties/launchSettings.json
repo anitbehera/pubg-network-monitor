@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PUBGNetworkMonitor (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "PUBGNetworkMonitor (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
