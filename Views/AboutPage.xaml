@@ -20,14 +20,7 @@
                     VerticalAlignment="Center"
                     FontSize="20"
                     FontWeight="SemiBold"
-                    Text="v1.0.0-beta.1" />
-                <!--<HyperlinkButton Content="Feedback"
-                                 NavigateUri="https://www.reddit.com/user/anitbehera_/"
-                                 FontSize="16"
-                                 Foreground="Orange"
-                                 VerticalAlignment="Center"
-                                 Padding="8,4"
-                                 Margin="0"/>-->
+                    Text="v1.0.0-beta.1.1" />
             </StackPanel>
 
             <!--  Tabular Format for Both Sections  -->
