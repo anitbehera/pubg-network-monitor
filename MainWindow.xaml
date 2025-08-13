@@ -89,7 +89,7 @@
                         Content="Anit Behera"
                         FontSize="14"
                         Foreground="{ThemeResource SystemControlForegroundAccentBrush}"
-                        NavigateUri="https://www.reddit.com/user/anitbehera_/" />
+                        NavigateUri="https://anitbehera.github.io/" />
                 </StackPanel>
             </Grid>
         </Border>
