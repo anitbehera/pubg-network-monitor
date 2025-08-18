@@ -20,7 +20,7 @@
                     VerticalAlignment="Center"
                     FontSize="20"
                     FontWeight="SemiBold"
-                    Text="v1.0.0-beta.1.1" />
+                    Text="v1.0.1" />
             </StackPanel>
 
             <!--  Tabular Format for Both Sections  -->

@@ -179,7 +179,9 @@ namespace PUBGNetworkMonitor.ViewModels
                 var allConnections = tslConnections.ToList();
 
                 // Include ALL connections
-                var connectionsToClose = new List<TcpConnectionInfo>(allConnections);
+                var connectionsToClose = allConnections
+                    .Where(conn => conn.RemoteAddress != "0.0.0.0")
+                    .ToList();
 
                 connectionsToClose = connectionsToClose
                     .OrderBy(conn => conn.RemoteAddress)

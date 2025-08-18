@@ -60,7 +60,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
                     FontSize="14"
-                    Text="v1.0.0-beta.1.1" />
+                    Text="v1.0.1" />
 
                 <!--  attribution  -->
                 <StackPanel
