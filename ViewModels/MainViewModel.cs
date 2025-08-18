@@ -178,26 +178,8 @@ namespace PUBGNetworkMonitor.ViewModels
                 var tslConnections = await tcpConnectionService.GetTslGameConnectionsAsync();
                 var allConnections = tslConnections.ToList();
 
-                // Filter connections to Akamai domains
-                var connectionsToClose = new List<TcpConnectionInfo>();
-
-                foreach (var connection in allConnections)
-                {
-                    try
-                    {
-                        // Perform reverse DNS lookup to get the domain
-                        var hostEntry = await Dns.GetHostEntryAsync(connection.RemoteAddress);
-                        if (hostEntry?.HostName != null && hostEntry.HostName.EndsWith("akamaitechnologies.com", StringComparison.OrdinalIgnoreCase))
-                        {
-                            connectionsToClose.Add(connection);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        // If reverse DNS lookup fails, skip this connection
-                        Debug.WriteLine($"Failed to resolve {connection.RemoteAddress}: {ex.Message}");
-                    }
-                }
+                // Include ALL connections
+                var connectionsToClose = new List<TcpConnectionInfo>(allConnections);
 
                 connectionsToClose = connectionsToClose
                     .OrderBy(conn => conn.RemoteAddress)
